@@ -42,7 +42,7 @@ Check code style:
 1. Set environment variables for the Google Sheet you want to retrieve data from:
 
     export GOOGLE_SPREADSHEET_ID="<spreadsheet_id_from_google_sheets>"
-    export GOOGLE_CELL_RANGE="<sheetname>!<range>"  # e.g. "Dogs!A1:C"
+    export GOOGLE_CELL_RANGE='<sheetname>!<range>'  # e.g. 'Dogs!A1:C'
 
 1. Ensure that your API Project has the Google Sheets API enabled. You can go to https://console.developers.google.com/apis/dashboard to select the project, then click "ENABLE APIS AND SERVICES" and look for sheets.
 
@@ -73,7 +73,7 @@ You can find the values in the downloaded JSON credentials file for your Google 
     heroku config:set GOOGLE_PRIVATE_KEY="<private_key_from_credentials_json>"
     heroku config:set GOOGLE_CLIENT_EMAIL="<client_email_from_credentials_json>"
     heroku config:set GOOGLE_SPREADSHEET_ID="<spreadsheet_id_from_google_sheets>"
-    heroku config:set GOOGLE_CELL_RANGE="<sheetname>!<range>"  # e.g. "Dogs!A1:C"
+    heroku config:set GOOGLE_CELL_RANGE='<sheetname>!<range>'  # e.g. 'Dogs!A1:C'
 
 Push code to heroku:
 
