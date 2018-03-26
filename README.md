@@ -36,13 +36,17 @@ Check code style:
 
 1. Open the automatically downloaded JSON credentials file. You will use the values to set the following environment variables:
 
+    ```
     export GOOGLE_PRIVATE_KEY="<private_key_from_credentials_json>"
     export GOOGLE_CLIENT_EMAIL="<client_email_from_credentials_json>"
+    ```
 
 1. Set environment variables for the Google Sheet you want to retrieve data from:
 
+    ```
     export GOOGLE_SPREADSHEET_ID="<spreadsheet_id_from_google_sheets>"
     export GOOGLE_CELL_RANGE='<sheetname>!<range>'  # e.g. 'Dogs!A1:C'
+    ```
 
 1. Ensure that your API Project has the Google Sheets API enabled. You can go to https://console.developers.google.com/apis/dashboard to select the project, then click "ENABLE APIS AND SERVICES" and look for sheets.
 
