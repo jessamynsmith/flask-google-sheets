@@ -70,7 +70,7 @@ Make a new Heroku app:
 
     heroku apps:create
 
-Set environment variables
+Set [Heroku environment variables](https://devcenter.heroku.com/articles/config-vars)
 
 You can find the values in the downloaded JSON credentials file for your Google service account.
 
