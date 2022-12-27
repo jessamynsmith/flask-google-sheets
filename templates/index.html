@@ -4,15 +4,15 @@
 		<title>Sample Google Sheets Data</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
 
 	</head>
 	<body>
-		<div class="container">
+		<div class="w3-container">
 			<h1>Sample Google Sheets Data</h1>
 
-            <table class="table">
+            <table class="w3-table-all">
             {% for row in values %}
                 <tr>
                 {% with firstrow = loop.index0 == 0 %}
@@ -28,12 +28,8 @@
             {% endfor %}
             </table>
 
-            <p>See the source code on <a href="https://github.com/jessamynsmith/flask-google-sheets">GitHub</a></p>
+            <p>See the source code on <a href="https://github.com/TRezendes/flask-google-sheets">GitHub</a></p>
 
         </div>
-
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     </body>
 </html>
