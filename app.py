@@ -7,11 +7,7 @@ import json
 
 def get_credentials():
     
-    '''
-    app.config['SECRET_KEY'] = config.get('SECRET_KEY')
-    app.config['SQLALCHEMY_DATABASE_URI'] = config.get('DEV_DATABASE_URI')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = config.get('SQLALCHEMY_TRACK_MODIFICATIONS')  
-    '''
+
     scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
     GOOGLE_PRIVATE_KEY = config.get('GOOGLE_PRIVATE_KEY')
     
@@ -24,22 +20,6 @@ def get_credentials():
     credentials = service_account.Credentials.from_service_account_info(account_info, scopes=scopes)
     return credentials
 
-'''
-def get_credentials():
-    scopes = ["https://www.googleapis.com/auth/spreadsheets.readonly"]
-    GOOGLE_PRIVATE_KEY = os.environ["GOOGLE_PRIVATE_KEY"]
-    # The environment variable has escaped newlines, so remove the extra backslash
-    GOOGLE_PRIVATE_KEY = GOOGLE_PRIVATE_KEY.replace('\\n', '\n')
-
-    account_info = {
-      "private_key": GOOGLE_PRIVATE_KEY,
-      "client_email": os.environ["GOOGLE_CLIENT_EMAIL"],
-      "token_uri": "https://accounts.google.com/o/oauth2/token",
-    }
-
-    credentials = service_account.Credentials.from_service_account_info(account_info, scopes=scopes)
-    return credentials
-'''
 
 def get_service(service_name='sheets', api_version='v4'):
     credentials = get_credentials()
