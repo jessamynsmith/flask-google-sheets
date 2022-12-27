@@ -1,12 +1,9 @@
 # flask-simple-example
 
 Simple example of retrieving data from Google Sheets and displaying it in a Flask app.
-https://flask-google-sheets.herokuapp.com/
 
-Like my work? Tip me! https://www.paypal.me/jessamynsmith
+This repository is a fork of [flask-google-sheets](https://github.com/jessamynsmith/flask-google-sheets) by [jessamynsmith](https://github.com/jessamynsmith/)
 
-
-### Development
 
 ## Setup
 
@@ -14,38 +11,47 @@ Fork the project on github and git clone your fork, e.g.:
 
     git clone https://github.com/<username>/flask-google-sheets.git
 
-Create a virtualenv using Python 3 and install dependencies. I recommend getting python3 using a package manager (homebrew on OSX), then installing [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) and [virtualenvwrapper](https://virtualenvwrapper.readthedocs.org/en/latest/install.html#basic-installation) to that python. NOTE! You must change 'path/to/python3'
-to be the actual path to python3 on your system.
+Create a virtualenv using Python 3 and install dependencies. I recommend getting [pyenv](https://github.com/pyenv/pyenv) and [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) using a package manager (homebrew on OSX), then using pyenv to install python. 
 
-    mkvirtualenv flask-google-sheets --python=/path/to/python3
+    pyenv install python 3.10.7
+    pyenv virtualenv 3.10.7 fgs
+    pyenv activate fgs
     pip install -r requirements.txt
 
-Check code style:
-
-    flake8
 
 ## Set up Google Sheets
 
-1. Open https://console.developers.google.com/permissions/serviceaccounts
+1. Open https://console.cloud.google.com/iam-admin/serviceaccounts
 
 1. If you already have a Google API project, select it. Otherwise, create one.
 
 1. Click "CREATE SERVICE ACCOUNT"
 
-1. Enter a Service account name. Set Role to Owner. Ensure that "Furnish a new private key" is checked, and that Key type "JSON" is selected. Click "CREATE".
+1. Enter a Service account name and Description. Click "CREATE AND CONTINUE".
 
-1. Open the automatically downloaded JSON credentials file. You will use the values to set the following environment variables:
+1. Set Role to Owner. Click "CONTINUE".
 
-    ```
-    export GOOGLE_PRIVATE_KEY="<private_key_from_credentials_json>"
-    export GOOGLE_CLIENT_EMAIL="<client_email_from_credentials_json>"
-    ```
+1. Under "3. Grant users access to this service account", leave both boxes blank and click "DONE".
 
-1. Set environment variables for the Google Sheet you want to retrieve data from:
+1. Once back on the "Service accounts for project <project_name>" screen, click the "⋮" menu in the "Actions" column of your new Service Account and select "Manage Keys".
 
-    ```
-    export GOOGLE_SPREADSHEET_ID="<spreadsheet_id_from_google_sheets>"
-    export GOOGLE_CELL_RANGE='<sheetname>!<range>'  # e.g. 'Dogs!A1:C'
+1. Click the "ADD KEY" dropdown and select "Create new key". On the "Create Private key for <project_name>" modal, ensure that the JSON Key type is select, and then click "CREATE".
+
+1. Create 
+
+
+
+1. Add the appropriate values from the JSON file that automatically downloaded and from Google Sheets to a file called `config.json` that resides in the same directory as `app.py`:
+
+    ```{JSON}
+    {
+        "FLASK_DEBUG": "True",
+        "SECRET_KEY": "SuperSecretKey",
+        "GOOGLE_PRIVATE_KEY": "<private_key_from_credentials_json>",
+        "GOOGLE_CLIENT_EMAIL": "<client_email_from_credentials_json>",
+        "GOOGLE_SPREADSHEET_ID": "<spreadsheet_id_from_google_sheets>",
+        "GOOGLE_CELL_RANGE": "<sheetname>!<range>"  # e.g. "Dogs!A1:C"
+    }
     ```
 
 1. Ensure that your API Project has the Google Sheets API enabled. You can go to https://console.developers.google.com/apis/dashboard to select the project, then click "ENABLE APIS AND SERVICES" and look for sheets.
