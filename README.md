@@ -2,9 +2,6 @@
 
 Simple example of retrieving data from Google Sheets and displaying it in a Flask app.
 
-This repository is a fork of [flask-google-sheets](https://github.com/jessamynsmith/flask-google-sheets) by [jessamynsmith](https://github.com/jessamynsmith/)
-
-
 ## Setup
 
 Fork the project on github and git clone your fork, e.g.:
