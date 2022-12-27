@@ -17,6 +17,7 @@
 .idea/**/sqlDataSources.xml
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
+config.json
 
 # Gradle:
 .idea/**/gradle.xml
@@ -140,3 +141,6 @@ ENV/
 # Rope project settings
 .ropeproject
 
+
+# Nova project settings
+**/.nova
